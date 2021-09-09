@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 const EnrollStudent = () => {
     const { register, handleSubmit, errors } = useForm();
     const [currentDepartment, setCurrentDepartment] = useState('CSE');
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [dept, setDept] = useState([]);
     document.title = "Enroll A Student";
 
@@ -14,12 +14,12 @@ const EnrollStudent = () => {
     }
 
     const onSubmit = data => {
-        if (data) {
-            setLoading(true);
-        }
+        // if (data) {
+        //     setLoading(true);
+        // }
         data.department = currentDepartment;
 
-        fetch('https://agile-hamlet-70271.herokuapp.com/addStudent', {
+        fetch('http://localhost:4200/addStudent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -27,7 +27,7 @@ const EnrollStudent = () => {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    setLoading(false);
+                    // setLoading(false);
                     localStorage.removeItem("student");
                     window.location.reload();
                 }

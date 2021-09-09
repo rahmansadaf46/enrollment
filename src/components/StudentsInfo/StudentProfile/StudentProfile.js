@@ -8,7 +8,7 @@ const StudentProfile = () => {
 
     let history = useHistory();
     const [student, setStudent] = useState({});
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [modalIsOpen, setIsOpen] = useState(false);
     document.title = 'Details';
     function openModal() {
@@ -20,16 +20,16 @@ const StudentProfile = () => {
         setIsOpen(false);
     }
     useEffect(() => {
-        fetch(`https://agile-hamlet-70271.herokuapp.com/students/${department}/${roll}`)
+        fetch(`http://localhost:4200/students/${department}/${roll}`)
             .then(res => res.json())
             .then(data => {
                 window.scrollTo(0, 0);
                 setStudent(data);
-                setLoading(false);
+                // setLoading(false);
             })
     }, [roll, department])
     const handleDelete = (id) => {
-        fetch(`https://agile-hamlet-70271.herokuapp.com/delete/${id}`, {
+        fetch(`http://localhost:4200/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -58,28 +58,28 @@ const StudentProfile = () => {
 
                                         <tbody>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Name:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.name}</h2></td>
+                                                <th ><h2 className="text-center">Name:</h2></th>
+                                                <td ><h2 className="text-center">{student.name}</h2></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Roll:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.roll}</h2></td>
+                                                <th ><h2 className="text-center">Roll:</h2></th>
+                                                <td ><h2 className="text-center">{student.roll}</h2></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Department:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.department}</h2></td>
+                                                <th ><h2 className="text-center">Department:</h2></th>
+                                                <td ><h2 className="text-center">{student.department}</h2></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Session:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.session}</h2></td>
+                                                <th ><h2 className="text-center">Session:</h2></th>
+                                                <td ><h2 className="text-center">{student.session}</h2></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Email:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.email}</h2></td>
+                                                <th ><h2 className="text-center">Email:</h2></th>
+                                                <td ><h2 className="text-center">{student.email}</h2></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col"><h2 className="text-center">Contact No:</h2></th>
-                                                <td scope="col"><h2 className="text-center">{student.mobile}</h2></td>
+                                                <th ><h2 className="text-center">Contact No:</h2></th>
+                                                <td ><h2 className="text-center">{student.mobile}</h2></td>
                                             </tr>
                                         </tbody>
 

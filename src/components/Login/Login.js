@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../App';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import "./Login.css";
@@ -28,7 +28,7 @@ const Login = () => {
         if (loggedInUser.email) {
             history.replace(from);
         }
-    }, []);
+    }, );
 
 
     const [currentUser, setCurrentUser] = useState({

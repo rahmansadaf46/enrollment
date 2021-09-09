@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { UserContext } from '../../../App';
+// import { UserContext } from '../../../App';
 import AllStudentsData from '../AllStudentsData/AllStudentsData';
 import Header from '../Header/Header';
 import './StudentsInfo.css';
@@ -20,13 +20,13 @@ const StudentsInfo = () => {
     const { register, handleSubmit, errors } = useForm();
     const [students, setStudents] = useState([]);
     const [rollNF, setRollNF] = useState(false);
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     document.title = "List of Student";
     localStorage.setItem('dept', JSON.stringify(deptData));
 
     const onSubmit = data => {
         setStudents([]);
-        fetch('https://agile-hamlet-70271.herokuapp.com/studentsByRoll', {
+        fetch('http://localhost:4200/studentsByRoll', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ roll: data.Roll })
@@ -56,7 +56,7 @@ const StudentsInfo = () => {
 
     function MyComponent2() {
         useEffect(() => {
-            fetch('https://agile-hamlet-70271.herokuapp.com/students')
+            fetch('http://localhost:4200/students')
                 .then(res => res.json())
                 .then(data => {
                     if (data) {

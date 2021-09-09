@@ -27,7 +27,7 @@ const UpdateStudent = ({ modalIsOpen, closeModal, student }) => {
 
     function MyComponent2() {
         useEffect(() => {
-            fetch('https://agile-hamlet-70271.herokuapp.com/departments')
+            fetch('http://localhost:4200/departments')
                 .then(res => res.json())
                 .then(data => {
                     if (data) {
@@ -47,7 +47,7 @@ const UpdateStudent = ({ modalIsOpen, closeModal, student }) => {
     }
 
     const onSubmit = data => {
-        fetch(`https://agile-hamlet-70271.herokuapp.com/update/${student._id}`, {
+        fetch(`http://localhost:4200/update/${student._id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
