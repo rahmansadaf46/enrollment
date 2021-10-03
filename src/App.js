@@ -33,7 +33,7 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/student/allstudent">
+          <Route path="/student/allStudent">
             <StudentsInfo></StudentsInfo>
           </Route>
           <Route path="/students/enrollment">

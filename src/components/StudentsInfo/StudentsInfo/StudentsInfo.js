@@ -19,6 +19,8 @@ const deptData = [
 const StudentsInfo = () => {
     const { register, handleSubmit, errors } = useForm();
     const [students, setStudents] = useState([]);
+
+
     const [rollNF, setRollNF] = useState(false);
     // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     document.title = "List of Student";
@@ -26,6 +28,7 @@ const StudentsInfo = () => {
 
     const onSubmit = data => {
         setStudents([]);
+        console.log(data);
         fetch('http://localhost:4200/studentsByRoll', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -40,6 +43,7 @@ const StudentsInfo = () => {
                     setRollNF(false);
                 }
                 setStudents(roll);
+                console.log(roll)
             })
             .catch(error => {
                 console.error(error)
@@ -63,12 +67,11 @@ const StudentsInfo = () => {
                         localStorage.setItem('student', JSON.stringify(data));
 
                     }
-
+                    console.log(data)
                     setStudents(data);
                 })
         }, [])
     }
-
 
     if (localStorage.getItem("student")) {
         MyComponent();
@@ -79,7 +82,7 @@ const StudentsInfo = () => {
 
 
     return (
-        <>
+        
 
             <div>
                 <Header></Header>
@@ -110,7 +113,8 @@ const StudentsInfo = () => {
                 </div>
 
             </div>
-        </>
+      
+        
     );
 };
 

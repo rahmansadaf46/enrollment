@@ -8,6 +8,7 @@ const AllStudentsData = ({ students }) => {
             <table className="table ">
                 <thead style={{ background: '#6C757D', }}>
                     <tr>
+                        <th className="text-white text-center" scope="col">Sr.</th>
                         <th className="text-white text-center" scope="col">Name</th>
                         <th className="text-white" scope="col">Roll Number</th>
                         <th className="text-white" scope="col">Department</th>
@@ -17,11 +18,13 @@ const AllStudentsData = ({ students }) => {
 
 
                 <tbody >
+                    
 
                     {
                         students.map((student, index) =>
 
                             <tr key={student._id} style={{ background: 'white' }}>
+                                <td className=" text-center"><span className="mt-5">{index+1}</span></td>
                                 <td className=" text-center"><span className="mt-5">{student.name}</span></td>
                                 <td>{student.roll}</td>
                                 <td><b>{student.department}</b></td>
@@ -33,8 +36,13 @@ const AllStudentsData = ({ students }) => {
                 </tbody>
 
             </table>
-
-
+{/* 
+                    <ul>
+                  
+                        {
+                            students.map((student)=> <li>{student.roll}</li> )
+                        }
+                    </ul> */}
 
 
         </div>

@@ -27,7 +27,7 @@ const Header = () => {
                         <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className=" navbar-nav ml-auto ">
                                 <li className="nav-item ">
-                                    <Link onClick={() => { window.location.href = "/student/allstudent" }} style={{ textDecoration: 'none' }} to="/student/allstudent" className="">
+                                    <Link onClick={() => { window.location.href = "/student/allStudent" }} style={{ textDecoration: 'none' }} to="/student/allstudent" className="">
                                         <span className="mr-4 btn btn-primary btn-sm">List of Student</span>
                                     </Link>
 

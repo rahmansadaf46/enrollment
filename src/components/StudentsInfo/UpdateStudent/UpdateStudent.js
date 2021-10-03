@@ -19,32 +19,11 @@ const UpdateStudent = ({ modalIsOpen, closeModal, student }) => {
     let history = useHistory();
 
     const [dept, setDept] = useState([]);
-    function MyComponent() {
-        useEffect(() => {
-            setDept(JSON.parse(localStorage.getItem("dept")) || {});
-        }, [])
-    }
-
-    function MyComponent2() {
-        useEffect(() => {
-            fetch('http://localhost:4200/departments')
-                .then(res => res.json())
-                .then(data => {
-                    if (data) {
-                        localStorage.setItem('dept', JSON.stringify(data));
-                    }
-                    setDept(data)
-                })
-        }, [])
-    }
+    useEffect(() => {
+        setDept(JSON.parse(localStorage.getItem("dept")) || {});
+    }, [])
 
 
-    if (localStorage.getItem("dept")) {
-        MyComponent();
-    }
-    else {
-        MyComponent2()
-    }
 
     const onSubmit = data => {
         fetch(`http://localhost:4200/update/${student._id}`, {
